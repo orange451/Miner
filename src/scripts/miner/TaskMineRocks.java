@@ -8,8 +8,8 @@ import org.tribot.api2007.Player;
 import org.tribot.api2007.types.RSObject;
 import org.tribot.api2007.types.RSTile;
 
-import scripts.sigma.AntiBan;
 import scripts.util.Animations;
+import scripts.util.AntiBan;
 import scripts.util.BotTask;
 import scripts.util.InteractiveObjects;
 import scripts.util.Locations;
