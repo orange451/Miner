@@ -11,6 +11,7 @@ import org.tribot.script.ScriptManifest;
 import org.tribot.script.interfaces.EventBlockingOverride;
 import org.tribot.script.interfaces.Painting;
 
+import scripts.gui.RSGui;
 import scripts.gui.RSGuiFrame;
 import scripts.util.BotTask;
 import scripts.util.InteractiveObjects;
@@ -20,7 +21,7 @@ import scripts.util.Locations;
 public class Miner extends Script implements Painting,EventBlockingOverride {
 	public static Miner plugin;
 	private BotTask currentTask;
-	private RSGuiFrame minerGui;
+	private RSGui minerGui;
 
 	public static ArrayList<String> supportedLocations = new ArrayList<String>();
 	public static ArrayList<String> supportedOres = new ArrayList<String>();
@@ -32,6 +33,7 @@ public class Miner extends Script implements Painting,EventBlockingOverride {
 		supportedLocations.add( Locations.VARROK_MINE_EAST.toString());
 		supportedLocations.add( Locations.VARROK_MINE_WEST.toString());
 		supportedLocations.add( Locations.ALKHARID_MINE.toString());
+		supportedLocations.add( Locations.ALKHARID_MINE_DEEP.toString());
 		Collections.sort(supportedLocations);
 
 		supportedOres.add( InteractiveObjects.ORE_COPPER.toString());

@@ -3,6 +3,7 @@ package scripts.miner;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import scripts.gui.RSGui;
 import scripts.gui.RSGuiBox;
 import scripts.gui.RSGuiButton;
 import scripts.gui.RSGuiDropDown;
@@ -13,20 +14,19 @@ import scripts.gui.RSGuiTextLabel;
 import scripts.util.InteractiveObjects;
 import scripts.util.Locations;
 
-public class MinerGui extends RSGuiFrame {
+public class MinerGui extends RSGui {
 
 	public MinerGui() {
-		super("scripts/miner/icon.png", "Miner Gui");
+		super("scripts/miner/icon.png");
 
-		RSGuiPanel panel = new RSGuiPanel( 200, 200 );
-		add( panel );
+		RSGuiPanel panel = this.getBotPanel();
 
 		RSGuiBox box = new RSGuiBox(0, 0, -1, -1);
 		box.setPadding(8);
 		panel.add(box);
 
 		// Mining location dropdown
-		box.add( new RSGuiTextLabel(0, 0, -1, -1, "Mine location:").setShadow(true) );
+		box.add( new RSGuiTextLabel(0, 0, "Mine location:").setShadow(true) );
 		final RSGuiDropDown d = new RSGuiDropDown(0, 16, box.getWidth());
 		box.add(d);
 		ArrayList<String> locs = Miner.supportedLocations;
@@ -36,7 +36,7 @@ public class MinerGui extends RSGuiFrame {
 		}
 
 		// Mining ore dropdown
-		box.add( new RSGuiTextLabel(0, 48, -1, -1, "Mine Ore:").setShadow(true) );
+		box.add( new RSGuiTextLabel(0, 48, "Mine Ore:").setShadow(true) );
 		final RSGuiDropDown d2 = new RSGuiDropDown(0, 64, box.getWidth());
 		box.add(d2);
 		ArrayList<String> ores = Miner.supportedOres;
@@ -69,14 +69,5 @@ public class MinerGui extends RSGuiFrame {
 				return true;
 			}
 		});
-
-		this.pack();
-		this.center();
 	}
-
-	@Override
-	protected void paint(Graphics g) {
-
-	}
-
 }
