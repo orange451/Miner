@@ -82,8 +82,8 @@ public class TaskMineRocks extends BotTask {
 			// If our rock is not out of ore, and we are not mining, then click the rock!
 			if ( Animations.isA( Player.getAnimation(), Animations.NONE ) ) {
 				rockToMine.click("Mine");
-				if ( (int)(Math.random() * 4) == 2 ) {
-					Camera.turnToTile( rockToMine.getPosition() );
+				if ( (int)(Math.random() * 5) == 2 ) {
+					Camera.turnToTile( MinerVars.DESIRED_LOCATION.getRandomizedPosition() );
 				}
 				Miner.plugin.sleep( General.random(200, 2000));
 			}

@@ -7,7 +7,7 @@ import scripts.util.Locations;
 public class TaskWalkToMine extends BotTaskWalk {
 
 	public TaskWalkToMine() {
-		super( MinerVars.DESIRED_LOCATION, true );
+		super( MinerVars.DESIRED_LOCATION, false );
 	}
 
 	@Override

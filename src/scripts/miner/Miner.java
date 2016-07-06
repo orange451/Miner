@@ -13,6 +13,7 @@ import org.tribot.script.interfaces.Painting;
 
 import scripts.gui.RSGui;
 import scripts.gui.RSGuiFrame;
+import scripts.util.AntiBan;
 import scripts.util.BotTask;
 import scripts.util.InteractiveObjects;
 import scripts.util.Locations;
@@ -45,8 +46,9 @@ public class Miner extends Script implements Painting,EventBlockingOverride {
 
 		while(true) {
 			long randomWait = (long) (Math.random() * 2000); // Average of 2 seconds waiting
-			randomWait += Math.pow( Math.random() * Math.random(), 8 ) * 25000; // Make it very rarely AFK for 20 seconds
 			sleep( 50L + randomWait );
+
+			AntiBan.afk( 30000 );
 
 			// Step along task
 			if ( currentTask != null && currentTask.isTaskComplete() ) {

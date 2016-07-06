@@ -19,6 +19,8 @@ public class MinerGui extends RSGui {
 	public MinerGui() {
 		super("scripts/miner/icon.png");
 
+		this.setNotification( true );
+
 		RSGuiPanel panel = this.getBotPanel();
 
 		RSGuiBox box = new RSGuiBox(0, 0, -1, -1);
