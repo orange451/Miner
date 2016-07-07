@@ -11,8 +11,8 @@ import scripts.gui.RSGuiFrame;
 import scripts.gui.RSGuiMouseListener;
 import scripts.gui.RSGuiPanel;
 import scripts.gui.RSGuiTextLabel;
-import scripts.util.InteractiveObjects;
-import scripts.util.Locations;
+import scripts.util.names.Locations;
+import scripts.util.names.ObjectNames;
 
 public class MinerGui extends RSGui {
 
@@ -59,7 +59,7 @@ public class MinerGui extends RSGui {
 			public boolean onMousePress(int x, int y) {
 				if ( b.getText().toLowerCase().contains("start") ) {
 					MinerVars.DESIRED_LOCATION = Locations.valueOf(d.getCurrentChoice().toUpperCase().replace(" ", "_"));
-					MinerVars.DESIRED_ROCK = InteractiveObjects.valueOf(d2.getCurrentChoice().toUpperCase().replace(" ", "_"));
+					MinerVars.DESIRED_ROCK = ObjectNames.valueOf(d2.getCurrentChoice().toUpperCase().replace(" ", "_"));
 					b.setText("Stop Mining!");
 					Miner.plugin.startTask();
 					close();
@@ -71,5 +71,10 @@ public class MinerGui extends RSGui {
 				return true;
 			}
 		});
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		//
 	}
 }

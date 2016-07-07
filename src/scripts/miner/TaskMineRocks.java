@@ -8,11 +8,11 @@ import org.tribot.api2007.Player;
 import org.tribot.api2007.types.RSObject;
 import org.tribot.api2007.types.RSTile;
 
-import scripts.util.Animations;
 import scripts.util.AntiBan;
 import scripts.util.BotTask;
-import scripts.util.InteractiveObjects;
-import scripts.util.Locations;
+import scripts.util.names.Animations;
+import scripts.util.names.Locations;
+import scripts.util.names.ObjectNames;
 
 public class TaskMineRocks extends BotTask {
 	private static final int MAX_DIST = 15;
@@ -28,7 +28,7 @@ public class TaskMineRocks extends BotTask {
 	}
 
 	private void FIND_ROCKS( RSTile lookFrom ) {
-		rockToMine = InteractiveObjects.get( MinerVars.DESIRED_ROCK, lookFrom, MAX_DIST );
+		rockToMine = ObjectNames.get( MinerVars.DESIRED_ROCK, lookFrom, MAX_DIST );
 
 		if ( rockToMine == null ) {
 			error = true;
@@ -56,7 +56,7 @@ public class TaskMineRocks extends BotTask {
 			rockToMine = newRock[0];
 
 			// If the rock we want to mine is out of ore
-			if ( !InteractiveObjects.isA( rockToMine, MinerVars.DESIRED_ROCK ) ) {
+			if ( !ObjectNames.isA( rockToMine, MinerVars.DESIRED_ROCK ) ) {
 
 				// If we are still mining
 				if ( Animations.isA( Player.getAnimation(), Animations.MINING ) ) {
@@ -65,9 +65,9 @@ public class TaskMineRocks extends BotTask {
 					FIND_ROCKS( Player.getPosition() );
 				} else {
 					// If we're not mining, then find new rock if it is an expensive rock
-					boolean findNew = MinerVars.DESIRED_ROCK != InteractiveObjects.ORE_COPPER &&
-									  MinerVars.DESIRED_ROCK != InteractiveObjects.ORE_TIN &&
-									  MinerVars.DESIRED_ROCK != InteractiveObjects.ORE_IRON;
+					boolean findNew = MinerVars.DESIRED_ROCK != ObjectNames.ORE_COPPER &&
+									  MinerVars.DESIRED_ROCK != ObjectNames.ORE_TIN &&
+									  MinerVars.DESIRED_ROCK != ObjectNames.ORE_IRON;
 
 					if ( findNew ) {
 						FIND_ROCKS( Player.getPosition() );

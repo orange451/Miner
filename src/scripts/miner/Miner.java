@@ -15,8 +15,8 @@ import scripts.gui.RSGui;
 import scripts.gui.RSGuiFrame;
 import scripts.util.AntiBan;
 import scripts.util.BotTask;
-import scripts.util.InteractiveObjects;
-import scripts.util.Locations;
+import scripts.util.names.Locations;
+import scripts.util.names.ObjectNames;
 
 @ScriptManifest(authors = { "orange451" }, category = "Mining", name = "Mining Plugin", version = 1.00, description = "Mines some ores", gameMode = 1)
 public class Miner extends Script implements Painting,EventBlockingOverride {
@@ -31,15 +31,15 @@ public class Miner extends Script implements Painting,EventBlockingOverride {
 	public void run() {
 		plugin = this;
 
-		supportedLocations.add( Locations.VARROK_MINE_EAST.toString());
-		supportedLocations.add( Locations.VARROK_MINE_WEST.toString());
-		supportedLocations.add( Locations.ALKHARID_MINE.toString());
-		supportedLocations.add( Locations.ALKHARID_MINE_DEEP.toString());
+		supportedLocations.add( Locations.VARROK_MINE_EAST.getName());
+		supportedLocations.add( Locations.VARROK_MINE_WEST.getName());
+		supportedLocations.add( Locations.ALKHARID_MINE.getName());
+		supportedLocations.add( Locations.ALKHARID_MINE_DEEP.getName());
 		Collections.sort(supportedLocations);
 
-		supportedOres.add( InteractiveObjects.ORE_COPPER.toString());
-		supportedOres.add( InteractiveObjects.ORE_TIN.toString());
-		supportedOres.add( InteractiveObjects.ORE_IRON.toString());
+		supportedOres.add( ObjectNames.ORE_COPPER.getName());
+		supportedOres.add( ObjectNames.ORE_TIN.getName());
+		supportedOres.add( ObjectNames.ORE_IRON.getName());
 		Collections.sort(supportedOres);
 
 		minerGui = new MinerGui();

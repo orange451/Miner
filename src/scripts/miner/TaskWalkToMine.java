@@ -2,7 +2,7 @@ package scripts.miner;
 
 import scripts.util.BotTask;
 import scripts.util.BotTaskWalk;
-import scripts.util.Locations;
+import scripts.util.names.Locations;
 
 public class TaskWalkToMine extends BotTaskWalk {
 
